@@ -35,7 +35,8 @@ CREATE TABLE pictures (
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     poster_id INTEGER FOREIGN KEY REFERENCES users(id),
-    body TEXT
+    body TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE img_likes (
@@ -54,6 +55,7 @@ CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
     author_id INTEGER FOREIGN KEY REFERENCES users(id),
     body TEXT,
-    post_id INTEGER FOREIGN KEY REFERENCES posts(id)
+    post_id INTEGER FOREIGN KEY REFERENCES posts(id),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
