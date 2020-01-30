@@ -5,7 +5,7 @@ const port = 3000;
 const usersRouter = require("./routes/users/users.js");
 const postsRouter = require("./routes/posts/posts.js");
 const likesRouter = require("./routes/likes/likes.js");
-const commentsRouter = require("./routes/pets/pets.js");
+const commentsRouter = require("./routes/comments/comments.js");
 const albumsRouter = require("./routes/albums/albums.js");
 const picturesRouter = require("./routes/albums/pictures/pictures.js");
 
