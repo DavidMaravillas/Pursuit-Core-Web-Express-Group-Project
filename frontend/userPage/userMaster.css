@@ -1,0 +1,29 @@
+#tOCList {
+  /* ul for table of contents */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+/* for vertical nav bar li's */
+/* li a {
+        display: block;
+        width: 60px;
+      } */
+
+/* li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+  }
+  
+  /* Change the link color on hover */
+/* li a:hover {
+    background-color: #555;
+    color: white;
+  } */
+
+body {
+}
