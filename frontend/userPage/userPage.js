@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let userAlbums = document.querySelector("#userAlbums");
 
   //about me section/ right
-  let aboutMe = document.querySelector("#aboutMe");
+  let aboutMeDiv = document.querySelector("#aboutMe");
   let userNameAboutMe = document.querySelector("#userNameAboutMe");
   let userAge = document.querySelector("#userAge");
   let aboutStatement = document.querySelector("#aboutStatement");

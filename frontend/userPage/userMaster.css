@@ -1,10 +1,34 @@
+body {
+  background-color: rgb(103 101 103);
+}
+
 #tOCList {
   /* ul for table of contents */
+  background-color: rgb(186 205 176);
+  border-style: solid;
+  border-color: blue;
   list-style-type: none;
   margin: 0;
   padding: 0;
   width: 200px;
   background-color: #f1f1f1;
+}
+
+#leftSideDiv {
+  background-color: rgb(114 155 121);
+  border-style: solid;
+  border-color: black;
+}
+
+#albumsSection {
+  border-style: ridge;
+  border-color: blueviolet;
+}
+
+#aboutMeDiv {
+  background-color: rgb(96 122 132);
+  border-color: crimson;
+  border-style: ridge;
 }
 
 /* for vertical nav bar li's */
@@ -25,7 +49,9 @@
     color: white;
   } */
 
-body {
+.wrapper {
+  border-style: solid;
+  border-color: black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin: auto;

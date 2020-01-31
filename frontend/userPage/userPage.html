@@ -10,39 +10,46 @@
     <link rel="stylesheet" href="./userMaster.css" />
   </head>
   <body>
+      <!-- LOGO -->
     <header id="logo">
       <img id="logoPic" />
-
-      <!-- LOGO -->
     </header>
+
+    <div class="wrapper">
+
     <nav id="tableOfContents">
       <ul id="tOCList">
-        <!-- users, albums, posts -->
+        <!-- li of users, albums, posts page links -->
       </ul>
     </nav>
 
-    <div>
-      <!-- SIDE BAR/ LEFT SIDE -->
-      <section id="profileImg">
+ <!-- SIDE BAR/ LEFT SIDE -->
+    <div id="leftSideDiv">
+      <section id="profileImg"> 
+          <!-- PROFILE IMAGE -->
         <img id="profilePic" href="" />
         <h2 id="userName"></h2>
-        <!-- PROFILE IMAGE -->
       </section> 
 
       <!-- ALBUMS -->
-      <section id="albums">
+      <section id="albumsSection">
         <button id="userAlbumCollection" type="submit">ALBUMS</button>
         <ul id="userAlbums"></ul>
         <!-- subsequent li's populated with user albums from db -->
       </section>
     </div>
 
-    <h2 class="aboutMe">
-      <!-- RIGHT SIDE -->
+ <!-- RIGHT SIDE -->
+    <div id="aboutMeDiv">
+    <h2 id="aboutMe"></h2>
       <h1 id="userName"></h1>
       <h2 id="userAge">age</h2>
-      <h2>about_statement</h2>
+      <h2>ABOUT STATEMENT</h2>
       <p id="aboutStatement"></p>
     </div>
+
+    </div>
+
+    </body>
   </body>
 </html>
