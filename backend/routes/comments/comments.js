@@ -25,6 +25,24 @@ comments.patch("/:comment_id",async (req,res)=>{
     let comment = req.body["commentBody"]
 
     try{
+        let commentPost = await db.any("UPDATE comments set body = $1 WHERE id = $2", [comment,commentID])
+        console.log(commentPost)
+        res.status(200).json({
+            comment,
+            stats:"success",
+            message: "posted a comment to post"
+        })
+    }catch(err){
+        console.log(err)
+    }
+})
+
+comments.patch("/:comment_id",async (req,res)=>{
+
+    let commentID = Number(req.params["comment_id"])
+    let comment = req.body["commentBody"]
+
+    try{
         let commentPost = await db.none("UPDATE comments set body = $1 WHERE id = $2", [comment,commentID])
         res.status(200).json({
             comment,
@@ -36,6 +54,21 @@ comments.patch("/:comment_id",async (req,res)=>{
     }
 })
 
+comments.delete("/:comment_id",async (req,res)=>{
 
+    let commentID = Number(req.params["comment_id"])
+
+    try{
+        let commentPost = await db.any("DELETE FROM comments WHERE id = $1", [commentID])
+        console.log(commentPost)
+        res.status(200).json({
+            commentID,
+            stats:"success",
+            message: "posted a comment to post"
+        })
+    }catch(err){
+        console.log(err)
+    }
+})
 
 module.exports = comments;
