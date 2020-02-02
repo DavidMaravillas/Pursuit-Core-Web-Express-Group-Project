@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", () => {
   // // logo/header
   // let header = document.querySelector("#logo");
@@ -23,3 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let userAge = document.querySelector("#userAge");
   let aboutStatement = document.querySelector("#aboutStatement");
 });
+=======
+git 
+>>>>>>> 49a43bd80ddaef7b6662f3e8efa00c512aab0e56
