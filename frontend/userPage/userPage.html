@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="./userPage.js"></script>
-    <title>Users Page</title>
-</head>
-<body>
-
+    <title>User's Page</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./userMaster.css" />
+  </head>
+  <body>
+      <!-- LOGO -->
     <header id="logo">
-        <!-- LOGO -->
+      <img id="logoPic" />
     </header>
 
-    <div>
-        <!-- SIDE BAR/ LEFT SIDE -->
-        <section id="profileImg">
-            <!-- PROFILE IMAGE -->
-        </section>
-        <section id="albums">
+    <div class="wrapper">
+
+    <nav id="tableOfContents">
+      <ul id="tOCList">
+        <!-- li of users, albums, posts page links -->
+      </ul>
+    </nav>
+
+ <!-- SIDE BAR/ LEFT SIDE -->
+    <div id="leftSideDiv" class="split left">
+        <div class="centered">
+            <section id="profileImg"> 
+                <!-- PROFILE IMAGE -->
+                <img id="profilePic" href="" />
+                <h2 id="userName"></h2>
+            </section> 
+      
             <!-- ALBUMS -->
-        </section>
+            <section id="albumsSection">
+              <ul id="userAlbums"></ul>
+              <!-- subsequent li's populated with user albums from db -->
+            </section>
+        </div>
     </div>
 
-    <div class="aboutMe">
-        <!-- RIGHT SIDE -->
-        <h1>first_name, last_name</h1>
-        <h2>age</h2>
-        <h2>about_statement</h2>
+ <!-- RIGHT SIDE -->
+    <div id="aboutMeDiv" class="split right">
+        <div class="centered">
+            <h2 id="aboutMe"></h2>
+            <h1 id="userName">Name:</h1>
+            <h2 id="userAge">Age:</h2>
+            <h2>About Statement:</h2>
+            <p id="aboutStatement"></p>
+        </div>
     </div>
-    
-</body>
+
+    </div>
+
+    </body>
+  </body>
 </html>

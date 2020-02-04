@@ -1,0 +1,122 @@
+body {
+  background-color: #f7f0f5;
+}
+
+#tOCList {
+  /* ul for table of contents */
+  background-color: #bacdb0;
+  border-style: solid;
+  border-color: #676567;
+  list-style-type: none;
+  /* margin: 0; */
+  /* padding: 0; */
+  top: 20px;
+  width: 100%;
+  background-color: #bacdb0;
+}
+
+#leftSideDiv {
+  background-color: #bacdb0;
+  border-style: solid;
+  border-color: #676567;
+}
+
+#albumsSection {
+  /* border-style: ridge; */
+  border-color: #676567;
+}
+
+#aboutMeDiv {
+  /* background-color: rgb(96 122 132); */
+  border-color: #676567;
+  /* border-style: ridge; */
+}
+
+/* for vertical nav bar li's */
+/* li a {
+        display: block;
+        width: 60px;
+      } */
+
+/* li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+  }
+  
+  /* Change the link color on hover */
+/* li a:hover {
+    background-color: #555;
+    color: white;
+  } */
+
+.wrapper {
+  border-style: solid;
+  border-color: #729b79;
+  /* display: grid; */
+}
+
+@media only screen and (max-width: 900px) {
+  body > img {
+    margin: 2% 2.5%;
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body > img {
+    margin: 2% 2.5%;
+    width: 45%;
+  }
+}
+
+/* additional */
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  /* z-index: 1; */
+  /* top: 0; */
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  /* left: 0; */
+  /* background-color: #111; */
+  /* top: 90px; */
+  /* top: 80px; */
+  /* bottom: 80px; */
+  left: 25%;
+  transform: translate(-50%, 10px);
+  /* padding-top: 20px; */
+
+}
+
+/* Control the right side */
+.right {
+  /* right: 0; */
+  /* background-color: red; */
+  /* top: 75%; */
+  left: 75%;
+  transform: translate(-50%, 10px);
+  /* padding-top: 20px; */
+
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  border-width: 2px;
+  border-color: #607a84;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 90px;
+}
