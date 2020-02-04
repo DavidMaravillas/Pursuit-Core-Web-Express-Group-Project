@@ -90,6 +90,8 @@ body {
 }
 
 #latestPostP {
+background-color: whitesmoke;
+color: black;
   padding: 10%;
   margin-bottom: 100px;
   margin-top: 100px;
@@ -99,4 +101,9 @@ body {
   justify-content: space-between;
   /* margin: auto; */
   width: 45%;
+  height: max-content;
+}
+
+#timeP {
+    font-size: smaller;
 }
