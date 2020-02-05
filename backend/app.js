@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use("/users", usersRouter);
 // app.use("/posts", postsRouter);
-// app.use("/likes", likesRouter);
+app.use("/likes", likesRouter);
 // app.use("/comments", commentsRouter);
 // app.use("/albums", albumsRouter);
 // app.use("/pictures", picturesRouter);

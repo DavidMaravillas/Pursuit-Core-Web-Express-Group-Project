@@ -1,5 +1,9 @@
 const posts = require("express").Router();
 const db = require('../../db/index.js');
+const userPostsRouter = require("./users/user")
+
+posts.use("/users", userPostsRouter)
+
 
 
 posts.get("/", async (req, res) => {
