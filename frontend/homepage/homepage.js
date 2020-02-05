@@ -1,48 +1,70 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Center : latest post with user caption, likes, and users comments
 
+  let selectUsers = document.querySelector("select")
+
+  const fetchAllUsers = async(user)=>{
+    let userUrl = "http://localhost:3000/users/"
+    try{
+        let usersDb = await axios.get(userUrl)
+        let users = usersDb.data.body
+        users.forEach(user =>{
+            let option = document.createElement("option")
+            option.innerText = `${user.first_name} ${user.last_name}`
+            option.value = user.id
+            selectUsers.appendChild(option)
+        })
+    } catch (err){
+        console.log(err)
+    }
+}
+fetchAllUsers()
+
   let postsFeed = document.querySelector("#postsFeed");
 
   const loadNewPosts = async () => {
     try {
       let res = await axios.get("http://localhost:3000/posts");
       res.data.body.forEach(post => {
-        // console.log(post);
-        // debugger
         let latestPostP = document.createElement("p");
-        // post.body = res.data.body.body
+
         latestPostP.innerHTML = post.body;
-        console.log(latestPostP)
-        latestPostP.id = "latestPostP";
+
+        latestPostP.className = "latestPostP";
         postsFeed.appendChild(latestPostP);
         let timeP = document.createElement("p");
-        timeP.id = "timeP";
+        timeP.className = "timeP";
         timeP.innerHTML = post.created_at;
         postsFeed.appendChild(timeP);
-        let postId = post.id
-        // console.log(postId)
+        latestPostP.postID = post.id;
 
-        // console.log(latestPostP.value)
+        let likeBtn = document.createElement("img");
+        let unliked = "https://cdn0.iconfinder.com/data/icons/healthcare-medicine/512/heart-512.png";
 
-let likeBtn = document.createElement("button")
-postsFeed.appendChild(likeBtn)
-likeBtn.addEventListener("click", async () => {
-  try {
-let res = await axios.post(`http://localhost:3000/posts/${postId}`)
-console.log(postId)
+        let liked = "https://getdrawings.com/free-icon/love-icon-png-61.png";
 
-//how do i connect each post to button??? what can i put in as post_id 
-  } catch (err) {
-    console.log(err);
-  }
-})
+        likeBtn.src = unliked;
 
+        likeBtn.postId = post.id;
+        postsFeed.appendChild(likeBtn);
+        likeBtn.className = "likeBtn";
+
+        likeBtn.addEventListener("click", async e => {
+          try {
+            let res = await axios.post(
+              `http://localhost:3000/likes/posts/${e.target.postId}`
+            );
+            likeBtn.src = liked;
+            // debugger
+            // console.log(e.target.postId);
+          } catch (err) {
+            console.log(err);
+          }
+        });
       });
     } catch (err) {
       console.log(err);
     }
-
-
   };
   loadNewPosts();
 });

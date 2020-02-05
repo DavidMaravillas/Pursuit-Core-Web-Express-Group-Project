@@ -89,7 +89,7 @@ body {
   margin-left: 15%;
 }
 
-#latestPostP {
+.latestPostP {
 background-color: whitesmoke;
 color: black;
   padding: 10%;
@@ -104,6 +104,10 @@ color: black;
   height: max-content;
 }
 
-#timeP {
+.timeP {
     font-size: smaller;
+}
+
+.likeBtn {
+width: 5%;
 }
