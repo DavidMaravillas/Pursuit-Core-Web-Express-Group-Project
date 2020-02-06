@@ -1,5 +1,8 @@
 const users = require("express").Router();
 const db = require('../../db/index.js');
+const profileImageRouter = require("./profileImage/profileImage")
+
+users.use("/profileImage", profileImageRouter)
 
 
 users.get("/", async (req, res) => {
