@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     const fetchData = async (url)=>{
         try{
             let data = await axios.get(url)
+            debugger
             return data.data
         }catch(err){
             console.log(err)
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     const fetchAllUsers = async()=>{
         let userUrl = "http://localhost:3000/users/"
         let usersDb = await fetchData(userUrl)
+        debugger
         let users = usersDb.body
 
         users.forEach(user =>{
@@ -59,7 +61,19 @@ document.addEventListener("DOMContentLoaded",()=>{
         results.innerHTML=""
     })
 
-    const createUserCard = (profileData) =>{
+    const getUserImg = async(profile) =>{
+        debugger
+        let url = `http://localhost:3000/users/profileImage/${profile}`
+        let userData = await fetchData(url)
+        debugger
+        if(!userData){
+            return "https://p7.hiclipart.com/preview/442/477/305/computer-icons-user-profile-avatar-profile.jpg"
+        } else {
+            return userData.body.picture
+        }
+    }
+
+    const createUserCard = async (profileData) =>{
         let profileId = profileData.id
         let card = document.createElement("div")
         card.className = "userCard"
@@ -68,6 +82,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         let profileAbout = document.createElement("h5")
         let profileSince = document.createElement("h5")
         let deleteButton = document.createElement("button")
+        let profileImage = document.createElement("img")
+
+        profileImage.src = await getUserImg(profileId)
         
         deleteButton.innerText = "Delete"
         profileName.innerText = `User Name: ${profileData.first_name} ${profileData.last_name}`
@@ -75,6 +92,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         profileAbout.innerText = `About Statment: ${profileData.about_statement}`
         profileSince.innerText = `Member Since: ${profileData.created_at}`
 
+        card.appendChild(profileImage)
         card.appendChild(profileName)
         card.appendChild(profileAge)
         card.appendChild(profileAbout)
@@ -99,8 +117,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         let userData = await fetchData(userUrl)
         let profile = userData.body
         createUserCard(profile)
-        debugger
-
     }
 
     search.addEventListener("submit",(event)=>{
@@ -114,7 +130,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         if(search.userProfile.checked === true){
             getUserProfile(userSelected)
-            debugger
         } else if(search.postSearch.checked === true){
             getUserPosts(userSelected)
         }
