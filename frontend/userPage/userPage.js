@@ -1,28 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // // logo/header
-    // let header = document.querySelector("#logo");
-    // let logoPic = document.querySelector("#logoPic");
-    
-    // nav bar/ table of contents
-    let tableOfContents = document.querySelector("#tableOfContents");
-    let tOCList = document.querySelector("#tOCList");
-    
-    // left side - user page : pic, name
-    let leftSideDiv = document.querySelector("#leftSideDiv");
-    let profileImg = document.querySelector("#profileImg");
-    let profilePic = document.querySelector("#profilePic");
-    let userName = document.querySelector("#userName");
-    //albums and alum list
     let albumsSection = document.querySelector("#albumsSection");
-    let userAlbumCollection = document.querySelector("#userAlbumCollection");
-    
-    let selectUsers = document.querySelector("#users");
-    let userAlbums = document.querySelector("#userAlbums");
-    let backButton = document.createElement("button");
-    let ul = document.querySelector("#userAlbums");
-    
     let user = "";
-
+    let album = "";
+    let selectUsers = document.querySelector("#users");
+    let ul = document.createElement("ul");
+   
     const fetchAllUsers = async()=>{
         let userUrl = "http://localhost:3000/users/"
         try{
@@ -41,51 +23,28 @@ document.addEventListener("DOMContentLoaded", () => {
     
     fetchAllUsers();
     
+    const listAlbums = async(user) => {
+
+        try {
+            let res = await axios.get("http://localhost:3000/albums/" + user);
+            let albums = res.data.body;
+            ul.innerText = "";
+            albumsSection.innerHTML = "";
+            albums.forEach(album => {
+                let li = document.createElement("li");
+                li.value = album.id;
+                li.innerText = album.album_name;
+                ul.appendChild(li);
+            });
+        albumsSection.appendChild(ul);   
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
     selectUsers.addEventListener("change", (event) => {
         user = event.target.value;
-        const listAlbums = async() => {
-            try {
-                let res = await axios.get("http://localhost:3000/albums/" + event.target.value);
-                let albums = res.data.body;
-                ul.innerText = "";
-                albums.forEach(album => {
-                    let li = document.createElement("li");
-                    li.value = album.id;
-                    li.innerText = album.album_name;
-                    ul.appendChild(li);
-                })
-            //     ul.addEventListener("click", async(listEvent)=>{
-            //         // console.log(listEvent.target.value);
-            //         // debugger;
-            //         try {
-            //             ul.innerHTML = "";
-            //             let res = await axios.get("http://localhost:3000/pictures/" + listEvent.target.value);
-            //             let pictures = res.data.body;
-            //             // console.log(pictures);
-            //             // debugger;
-            //             userAlbums.innerHTML = "";
-            //             pictures.forEach(photos => {
-            //                 // console.log(photos);
-            //                 // debugger;
-            //                 let img = document.createElement("img");
-            //                 img.src = photos.picture;
-            //                 userAlbums.appendChild(img);
-            //             })
-            //             backButton.innerText = "Back";
-            //             userAlbums.appendChild(backButton);
-            //         } catch(error) {
-            //             console.log(error);
-            //         };
-                    
-            //     })
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        
-        listAlbums();    
+        listAlbums(user);    
         
         const userInfo = async() => {
             try {
@@ -101,95 +60,76 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(error);
             }
         }
-        
         userInfo();
-        
     });
 
+    let addButton = document.createElement("button");
+    let backButton = document.createElement("button");
+    let pictureInput = document.createElement("input");
+    let addButtonDiv = document.createElement("div");
 
-    ul.addEventListener("click", async(listEvent)=>{
-        // console.log(listEvent.target.value);
-        // debugger;
+    
+    const listPhotos = async(album) => {
         try {
-            ul.innerHTML = "";
-            let res = await axios.get("http://localhost:3000/pictures/" + listEvent.target.value);
+            let res = await axios.get("http://localhost:3000/pictures/" + album);
             let pictures = res.data.body;
-            // console.log(pictures);
-            // debugger;
-            userAlbums.innerHTML = "";
+            albumsSection.innerHTML = "";
             pictures.forEach(photos => {
-                // console.log(photos);
-                // debugger;
-                let img = document.createElement("p");
+                let img = document.createElement("div");
                 // img.src = photos.picture;
                 img.innerText = photos.picture;
+                img.value = photos.id;
     // had to change img to p
-                userAlbums.appendChild(img);
+                albumsSection.appendChild(img);
                 let deleteButton = document.createElement("button");
                 deleteButton.innerText = "Delete";
                 deleteButton.value = photos.id;
-                // console.log(deleteButton.value);
-                // debugger;
-                userAlbums.appendChild(deleteButton);
+                albumsSection.appendChild(deleteButton);
                 deleteButton.addEventListener("click", async() => {
                     try {
-                        // console.log(Number(deleteButton.value));
-                        // debugger;
                         let res = await axios.delete("http://localhost:3000/pictures/" + Number(deleteButton.value));
-            
+                        img.parentNode.removeChild(img);
+                        deleteButton.parentNode.removeChild(deleteButton);
                     } catch (error) {
                         console.log(error);
                     };
                 });
             });
-            backButton.innerText = "Back";
-            userAlbums.appendChild(backButton);
+
+        let backButtonDiv = document.createElement("div");
+        backButton.innerText = "Back to Albums";
+        albumsSection.appendChild(backButtonDiv);
+        backButtonDiv.appendChild(backButton);
+
+        addButton.innerText = "Add Photo";
+        albumsSection.appendChild(addButtonDiv);
+        addButtonDiv.appendChild(pictureInput);
+        addButtonDiv.appendChild(addButton);
+
         } catch(error) {
             console.log(error);
         };
+    };
+    
+    
+    ul.addEventListener("click", async(listEvent)=>{
+        album = listEvent.target.value;  
+        listPhotos(album);
     });
-
+    
+    addButton.addEventListener("click", async() => {
+        try {
+            let res = await axios.post("http://localhost:3000/pictures/" + Number(album), {picture: pictureInput.value, poster_id: Number(album)});
+            let pictures = res.data.body;
+            listPhotos(album);
+        } catch (error) {
+            console.log(error);
+        };
+    });
     
     backButton.addEventListener("click", async() => {
-        try {
-            let res = await axios.get("http://localhost:3000/albums/" + user);
-            let albums = res.data.body;
-            let ul = document.querySelector("#userAlbums");
-            ul.innerText = "";
-            albums.forEach(album => {
-                let li = document.createElement("li");
-                li.value = album.id;
-                li.innerText = album.album_name;
-                ul.appendChild(li);
-            });
-        } catch(error) {
-            console.log(error);
-        };
+        listAlbums(user);
     });
-
-    // deleteButton.addEventListener("click", async() => {
-    //     try {
-    //         console.log(deleteButton.value);
-    //         // debugger;
-    //         let res = await axios.delete("http://localhost:/3000/pictures/" + Number(deleteButton.value));
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     };
-    // });
-
-    // addPicture.addEventListener("click", async() => {
-    //     try {
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     };
-    // });
-
-    //about me section/ right
-    let aboutMeDiv = document.querySelector("#aboutMe");
-    let userNameAboutMe = document.querySelector("#userNameAboutMe");
-    
     
 });
 
