@@ -22,9 +22,27 @@
         <!-- li of users, albums, posts page links -->
       </ul>
     </nav>
-
+    <select name="users" id="users" required>
+        <option selected disabled>Select User</option>
+    </select>
  <!-- SIDE BAR/ LEFT SIDE -->
     <div id="leftSideDiv" class="split left">
+        
+        <div class="centered">
+            <h1>About Me</h1>
+            <h2>Name:</h2>
+            <p id="userName"></p>
+            <h2>Age:</h2>
+            <p id="userAge"></p>
+            <h2>About Statement:</h2>
+            <p id="aboutStatement"></p>
+        </div>
+
+    </div>
+
+ <!-- RIGHT SIDE -->
+    <div id="aboutMeDiv" class="split right">
+
         <div class="centered">
             <section id="profileImg"> 
                 <!-- PROFILE IMAGE -->
@@ -34,21 +52,13 @@
       
             <!-- ALBUMS -->
             <section id="albumsSection">
-              <ul id="userAlbums"></ul>
+              <div id="userAlbums"></div>
               <!-- subsequent li's populated with user albums from db -->
+              <div id="button"></div>
             </section>
         </div>
-    </div>
 
- <!-- RIGHT SIDE -->
-    <div id="aboutMeDiv" class="split right">
-        <div class="centered">
-            <h2 id="aboutMe"></h2>
-            <h1 id="userName">Name:</h1>
-            <h2 id="userAge">Age:</h2>
-            <h2>About Statement:</h2>
-            <p id="aboutStatement"></p>
-        </div>
+
     </div>
 
     </div>

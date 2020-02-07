@@ -1,62 +1,65 @@
-app.get("/", (req, res) => {
+const users = require("express").Router();
+const db = require('../../db/index.js');
+
+
+users.get("/", async (req, res) => {
     try {
-        let users = db.any("SELECT * FROM users");
+        let usersDB = await db.any("SELECT * FROM users");
         res.json({
             status: "success",
             message: "got all users",
-            body: {
-                users
-            }
+            body: usersDB
         });
     } catch(error) {
-        next(err);
+        console.log(error);
     };
 });
 
-app.get("/:id", (req, res) => {
+users.get("/:id", async (req, res) => {
     try {
-        let users = db.one ("SELECT * FROM users WHERE id = $1 ", [req.params.id]);
+        let usersDB =  await db.one("SELECT * FROM users WHERE id = $1 ", [req.params.id]);
         res.json({
             status: "success",
             message: "got specific user information",
-            body: {
-                users
-            }
+            body: usersDB
         });
     } catch(error) {
-        next(err);
+        console.log(error);
     };
 });
 
-app.post("/", (req, res) => {
+users.post("/", async (req, res) => {
+
+    console.log(req.body)
     try {
-        let users = await db.one("INSERT INTO users (first_name, last_name, age, profile_image, about_statement) VALUES (${first_name}, ${last_name), ${age}, ${profile_image}, ${about_statement}) RETURNING *", req.body);
+        let usersDB = await db.any("INSERT INTO users (first_name, last_name, age, about_statement) VALUES ($1, $2, $3, $4) RETURNING *", [req.body.first_name,req.body.last_name,Number(req.body.age),req.body.about_statement]);
         res.json({
             status: "success",
             message: "created new user",
             body: {
-                name: req.body.name,
-                age: req.body.age
+                name: req.body.first_name + req.body.last_name,
+                age: req.body.age,
+                about_statement: req.body.about_statement
             }
         });
     } catch(error) {
-        next(err);
+        console.log(error);
     };
 })
 
-app.delete("/:id", (req, res) => {
+users.delete("/:id", (req, res) => {
     try {
-        await db.none("DELETE FROM users WHERE id = $1", [req.params.id]);
+        db.none("DELETE FROM users WHERE id = " + req.params.id, [req.params.id]);
         res.json({
             status: "success",
             message: "deleted a single user",
             body: {
-                id: req.params.id,
-                name: req.body.name,
-                age: req.body.age
+                deleted_id: req.params.id
             }
         });
     } catch(error) {
-        next(err);
+        console.log(error);
     };
 });
+
+module.exports = users
