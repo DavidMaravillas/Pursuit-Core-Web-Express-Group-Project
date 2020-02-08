@@ -5,7 +5,7 @@ const port = 3000;
 const usersRouter = require("./routes/users/users.js");
 const postsRouter = require("./routes/posts/posts.js");
 const likesRouter = require("./routes/likes/likes.js");
-// const commentsRouter = require("./routes/pets/pets.js");
+const commentsRouter = require("./routes/comments/comments");
 const albumsRouter = require("./routes/albums/albums.js");
 const picturesRouter = require("./routes/albums/pictures/pictures.js");
 
@@ -14,11 +14,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use("/users", usersRouter);
-// app.use("/posts", postsRouter);
+app.use("/posts", postsRouter);
 app.use("/likes", likesRouter);
-// app.use("/comments", commentsRouter);
-// app.use("/albums", albumsRouter);
-// app.use("/pictures", picturesRouter);
+app.use("/comments", commentsRouter);
+app.use("/albums", albumsRouter);
+app.use("/pictures", picturesRouter);
 
 app.listen(port, () => console.log("Server running on port ", port));
 

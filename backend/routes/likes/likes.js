@@ -56,4 +56,20 @@ likesRouter.delete("/:post_id/:liker_id", (req, res) => {
   }
 });
 
+likesRouter.get("/:post_id/:liker_id", async (req, res) => {
+  try {
+    let allLikesById = await db.any(
+      "SELECT * FROM posts_likes WHERE post_id = $1 AND liker_id = $2",
+      [req.params.post_id,req.params.liker_id]
+    );
+    res.json({
+      status: "success",
+      message: "got all likes",
+      body: allLikesById
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = likesRouter;

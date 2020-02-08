@@ -1,3 +1,163 @@
-.userCard{
-    background-color: cyan
-}
+.logoBanner {
+    display: flex;
+    grid-template-rows: 1fr;
+    margin-left: 10%;
+    padding: -35%;
+    height: 15%;
+  }
+  
+  #logo {
+    align-items: center;
+    text-align: center;
+  }
+  
+  #logoPic {
+    width: 10%;
+  }
+  
+  #tOCListHomePage {
+    text-shadow: whitesmoke 3px 0 10px;
+    margin-left: 3%;
+    margin-bottom: 5%;
+    background-image: linear-gradient(
+      325deg,
+      #c73e1d 0%,
+      orange 10%,
+      lightgreen 25%,
+      #e64aa7 100%,
+      /* #a23b72 100%, */ magenta 75%,
+      indigo 90%
+    );
+    border-color: rgb(193, 231, 120);
+    border-width: 1px;
+    border-style: ridge;
+    width: min-content;
+    height: min-content;
+    text-align: center;
+    /* margin-left: 30%; */
+    text-shadow: #fc0 1px 0 10px;
+    box-shadow: 12px 12px 2px 1px hsl(300, 76%, 72%, 0.15);
+  }
+  
+  #tOCListHP {
+    list-style: none;
+    color: whitesmoke;
+    justify-content: center;
+    padding: 40px 20px 40px 20px;
+    margin-bottom: 3%;
+  }
+  
+  body {
+    background-color: black;
+    color: whitesmoke;
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 10% 45% 45%;
+    margin: auto;
+    margin-left: 5%;
+  }
+  .userCard {
+    font-size: 18pt;
+    margin-top: 20%;
+    background-image: linear-gradient(
+      280deg,
+      #c73e1d 0%,
+      orange 10%,
+      lightgreen 25%,
+      #e64aa7 100%,
+      turquoise 75%,
+      indigo 90%
+    );
+    border-color: rgb(193, 231, 120);
+    border-width: 1px;
+    border-style: ridge;
+    color: lightgreen;
+    width: 60%;
+    margin: auto;
+    align-items: center;
+    padding: 10%;
+    text-shadow: #fc0 1px 0 10px;
+    box-shadow: 12px 12px 2px 1px hsl(300, 76%, 72%, 0.15);
+  }
+  
+  #firstName {
+    height: 20px;
+    margin-top: -165px;
+  }
+  
+  #lableLastName {
+    margin-top: -250px;
+  }
+  
+  #lastName {
+    margin-top: -230px;
+    height: 20px;
+  }
+  
+  #ageLable {
+    margin-top: -200px;
+  }
+  
+  #firstNameLable {
+    margin-top: -70px;
+  }
+  
+  #age {
+    margin-top: -180px;
+    height: 20px;
+  }
+  
+  #aboutStatementLabel {
+    margin-top: -140px;
+  }
+  
+  #aboutStatement {
+    margin-top: -120px;
+  }
+  
+  #search {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 25%;
+    padding: 5%;
+    border-width: 1px;
+    border-style: ridge;
+    border-color: hsl(300, 76%, 72%, 0.45);
+    padding-right: 10%;
+    justify-content: center;
+    margin-left: 5%;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  }
+  
+  .searchForm {
+    margin-bottom: 25px;
+  }
+  
+  #newUser {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 25%;
+    padding: 5%;
+    border-width: 1px;
+    border-style: ridge;
+    border-color: hsl(300, 76%, 72%, 0.45);
+    padding-right: 10%;
+    justify-content: center;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  }
+  
+  .newUserForm > input {
+    margin-bottom: 1%;
+    margin-top: -60px;
+  }
+  
+  #submitButton {
+    display: flex;
+    flex-flow: wrap-reverse;
+    align-self: self-end;
+  }
