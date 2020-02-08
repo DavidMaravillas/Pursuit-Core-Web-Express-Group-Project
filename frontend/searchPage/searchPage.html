@@ -1,43 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>RUFF Search</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="./index.css" rel="stylesheet">
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="./index.js"></script>
-    </head>
-    <body>
-        <form action="submit" id="search">
-            <label for="users">Select User</label>
-            <select name="users" id="users" required>
-                <option selected disabled>Select User</option>
-            </select>
-            <label for="userProfile" >show Profile</label>
-            <input type="radio" name="searchField" id="userProfile" checked="checked">
-            <label for="postSearch">Posts</label>
-            <input type="radio" name="searchField" id="postSearch">
-            <input type="submit" value="submit">
-        </form>
-        
-        
-        <form action="submit" id="newUser">
-            <h4>Add a new User</h4>
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName" required>
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName" required>
-            <label for="age">Age</label>
-            <input type="number" name="age" id="age" required>
-            <label for="aboutStatement">About Statement</label>
-            <input type="text" name="aboutStatement" id="aboutStatement" required>
-            <input type="submit" value="submit">
-        </form>
+  <head>
+    <title>RUFF Search</title>
+    <link
+      id="icon"
+      rel="shortcut icon"
+      href="https://static.wixstatic.com/media/c5d9e6_d28648b56e4e462db404163478bfe8f5~mv2_d_1676_1674_s_2.png/v1/fill/w_260,h_258,al_c,q_85,usm_0.66_1.00_0.01/RainbowBridge_PawLogo.webp"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./index.css" rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+  </head>
 
-        <footer id="results"></footer>
-        
+  <body>
+    <header class="logoBanner" id="logo" role="banner">
+      <img
+        id="ruffDraft"
+        src="https://www.freelogodesign.org/file/app/client/thumb/9ef03361-69b4-43c4-ae71-0c8b68ba27c8_200x200.png?1580775633992"
+      />
+      <img
+        id="logoPic"
+        src="https://static.wixstatic.com/media/c5d9e6_d28648b56e4e462db404163478bfe8f5~mv2_d_1676_1674_s_2.png/v1/fill/w_260,h_258,al_c,q_85,usm_0.66_1.00_0.01/RainbowBridge_PawLogo.webp"
+      />
+    </header>
 
+    <div class="container">
+      <nav id="tOCListHomePage">
+        <ul id="tOCListHP">
+          <li><a href="../homepage/homepage.html">Home</a></li>
+          <li><a href="./searchPage.hml">Search</a></li>
+          <li><a href="../userPage/userPage.html">User Page</a></li>
+        </ul>
+      </nav>
 
-    </body>
+      <form class="searchForm" action="submit" id="search">
+        <h4>Select User</h4>
+        <select class="searchForm" name="users" id="users" required>
+          <option class="searchForm" selected disabled>Users</option>
+        </select>
+        <label class="searchForm" for="userProfile">Show Profile</label>
+        <input
+          class="searchForm"
+          type="radio"
+          name="searchField"
+          id="userProfile"
+          checked="checked"
+        />
+        <label class="searchForm" for="postSearch">Posts</label>
+        <input
+          class="searchForm"
+          type="radio"
+          name="searchField"
+          id="postSearch"
+        />
+        <input class="searchForm" type="submit" value="submit" />
+      </form>
+
+      <form class="newUserForm" action="submit" id="newUser">
+        <h4>Add New User</h4>
+        <label class="newUserForm" id="firstNameLable" for="firstName"
+          >First Name</label
+        >
+        <input
+          class="newUserForm"
+          type="text"
+          name="firstName"
+          id="firstName"
+          required
+        />
+        <label class="newUserForm" id="lableLastName" for="lastName"
+          >Last Name</label
+        >
+        <input
+          class="newUserForm"
+          type="text"
+          name="lastName"
+          id="lastName"
+          required
+        />
+        <label class="newUserForm" id="ageLable" for="age">Age</label>
+        <input class="newUserForm" type="number" name="age" id="age" required />
+        <label class="newUserForm" id="aboutStatementLabel" for="aboutStatement"
+          >About Statement</label
+        >
+        <input
+          class="newUserForm"
+          type="text"
+          name="aboutStatement"
+          id="aboutStatement"
+          required
+        />
+        <input class="newUserForm" id="submitButton" type="submit" value="submit" />
+      </form>
+    </div>
+    <footer id="results"></footer>
+  </body>
 </html>
