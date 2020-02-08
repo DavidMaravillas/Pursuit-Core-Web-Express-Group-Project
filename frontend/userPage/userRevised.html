@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="./userRevised.js"></script>
+    <title>User's Page</title>
+    <link
+      id="icon"
+      rel="shortcut icon"
+      href="https://static.wixstatic.com/media/c5d9e6_d28648b56e4e462db404163478bfe8f5~mv2_d_1676_1674_s_2.png/v1/fill/w_260,h_258,al_c,q_85,usm_0.66_1.00_0.01/RainbowBridge_PawLogo.webp"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./userRevised.css" />
+  </head>
+  <body>
+ 
+    <header id="logo" role="banner">
+        <img
+          id="ruffDraft"
+          src="https://www.freelogodesign.org/file/app/client/thumb/9ef03361-69b4-43c4-ae71-0c8b68ba27c8_200x200.png?1580775633992"
+        />
+        <img
+          id="logoPic"
+          src="https://static.wixstatic.com/media/c5d9e6_d28648b56e4e462db404163478bfe8f5~mv2_d_1676_1674_s_2.png/v1/fill/w_260,h_258,al_c,q_85,usm_0.66_1.00_0.01/RainbowBridge_PawLogo.webp"
+        />
+      </header>
+
+    <nav id="tOCListHomePage">
+        <ul id="tOCListHP">
+          <li><a href="./homepage.html">Home</a></li>
+          <li><a href="./searchPage.hml">Search</a></li>
+          <!-- <li><a href="./alumbsPage.html">Albums</a></li> -->
+        </ul>
+      </nav>
+
+      
+      <select name="users" id="users" required>
+          <option selected disabled>Select User</option>
+        </select>
+                  <div class="wrapper">
+ <!-- SIDE BAR/ LEFT SIDE -->
+    <div id="leftSideDiv" class="split left">
+        
+        <div class="centered" id="boutMe">
+            <h1>About Me</h1>
+            <h2>Name:</h2>
+            <p id="userName"></p>
+            <h2>Age:</h2>
+            <p id="userAge"></p>
+            <h2>About Statement:</h2>
+            <p id="aboutStatement"></p>
+        </div>
+
+    </div>
+
+ <!-- RIGHT SIDE -->
+    <div id="aboutMeDiv" class="split right">
+
+        <div class="centered">
+            <section id="profileImg"> 
+                <!-- PROFILE IMAGE -->
+                <img id="profilePic" href="" />
+                <h2 id="userName"></h2>
+            </section> 
+      
+            <!-- ALBUMS -->
+            <section id="albumsSection"></section>
+        </div>
+    </div>
+    </div>
+    </body>
+  </body>
+</html>

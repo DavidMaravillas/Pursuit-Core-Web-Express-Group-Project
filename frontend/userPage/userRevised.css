@@ -1,0 +1,204 @@
+#logo {
+  display: flex;
+  flex-direction: row;
+  padding: -35%;
+  margin-left: 10%;
+}
+
+#logoPic {
+  width: 7%;
+  height: 7%;
+  margin-top: 3%;
+}
+
+#tOCListHomePage {
+  text-shadow: whitesmoke 3px 0 10px;
+  margin-left: 3%;
+  margin-bottom: 5%;
+  background-image: linear-gradient(
+    325deg,
+    #c73e1d 0%,
+    orange 10%,
+    lightgreen 25%,
+    #e64aa7 100%,
+    magenta 75%,
+    indigo 90%
+  );
+  border-color: rgb(193, 231, 120);
+  border-width: 1px;
+  border-style: ridge;
+  width: min-content;
+  height: min-content;
+  text-align: center;
+  /* margin-left: 30%; */
+  text-shadow: #fc0 1px 0 10px;
+  box-shadow: 12px 12px 2px 1px hsl(300, 76%, 72%, 0.15);
+}
+
+#tOCListHP {
+  list-style: none;
+  color: whitesmoke;
+  justify-content: center;
+  padding: 40px 20px 40px 20px;
+  margin-bottom: 3%;
+}
+
+body {
+  height: 100vh;
+  background-color: black;
+  color: whitesmoke;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#users {
+  margin-left: 5%;
+}
+
+#leftSideDiv {
+  border-width: 1px;
+  text-shadow: #fc0 1px 0 10px;
+  box-shadow: 12px 12px 2px 1px hsl(300, 76%, 72%, 0.15);
+  border-style: ridge;
+  border-color: lightgreen;
+}
+
+#albumsSection {
+  border-width: 1px;
+  border-style: ridge;
+  border-color: hsl(300, 76%, 72%, 0.15);
+  display: grid;
+  grid-template-rows: auto;
+  padding: 20px;
+  background-image: linear-gradient(
+    325deg,
+    #c73e1d 0%,
+    orange 10%,
+    lightgreen 25%,
+    #e64aa7 100%,
+    magenta 75%,
+    indigo 90%
+  );
+  text-align: -webkit-center;
+}
+
+#aboutMeDiv {
+  border-width: 1px;
+  /* background-color: rgb(96 122 132); */
+  border-color: hsl(300, 76%, 72%, 0.15);
+  border-style: ridge;
+  padding: 20px;
+  text-align: justify;
+}
+
+#boutMe {
+  padding: 20px;
+}
+
+.deleteButton {
+  width: 25%;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: #555;
+  color: white;
+}
+
+ul {
+  text-shadow: #fc0 1px 0 10px;
+  list-style: none;
+}
+
+#profileImg {
+  display: none;
+}
+
+.img {
+  padding: 3%;
+  width: 50%;
+  margin-top: 0%;
+  margin-bottom: 3%;
+  border-width: 3px;
+  border-style: ridge;
+  border-color: lightgreen;
+}
+
+.wrapper {
+  /* border-width: 3px;
+  border-style: solid;
+  border-color: #729b79; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3%;
+}
+
+@media only screen and (max-width: 900px) {
+  header {
+    margin: 2% 2.5%;
+    width: 45%;
+  }
+  body > img {
+    margin: 2% 2.5%;
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  header {
+    margin: 2% 2.5%;
+    width: 45%;
+  }
+  body > img {
+    margin: 2% 2.5%;
+    width: 45%;
+  }
+}
+
+/* additional */
+
+/* Split the screen in half */
+/* .split {
+  height: 100%;
+  width: 50%;
+  /* position: fixed; 
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+} */
+
+/* Control the left side 
+.left {
+  /* left: 0; */
+/* background-color: #111; */
+/* top: 90px; */
+/* top: 80px; */
+/* bottom: 80px; 
+  left: 25%;
+  transform: translate(-50%, 10px);
+  /* padding-top: 20px; 
+}
+
+/* Control the right side
+.right {
+  /* right: 0; */
+/* background-color: red; */
+/* top: 75%; 
+  left: 75%;
+  transform: translate(-50%, 10px);
+  /* padding-top: 20px; 
+} 
+
+If you want the content centered horizontally and vertically */
+/* .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  border-width: 2px;
+  border-color: #607a84;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 90px;
+} */
